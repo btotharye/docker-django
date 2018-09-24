@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>The Nerdy Python - Snake Details</title>
+    </head>
+    <div class="snake">
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'snake_edit' pk=snake.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ snake.name }}</h1>
+        <p>hatch_date: {{ snake.hatch_date }}</p>
+        <p>{{ snake.notes|linebreaksbr }}</p>
+    </div>
+{% endblock %}

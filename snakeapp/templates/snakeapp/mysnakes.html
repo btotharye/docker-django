@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>The Nerdy Python - My Snakes</title>
+    </head>
+    {% for snake in snakes %}
+        <div class="snake">
+            <h1><a href="{% url 'snake_detail' pk=snake.pk %}">{{ snake.name }}</a></h1>
+            <p>owner: {{ snake.owner }}</p>
+            <p>hatch_date: {{ snake.hatch_date }}</p>
+            <p>snake_notes: {{ snake.notes|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
